@@ -1,0 +1,155 @@
+
+       :root {
+    /* Light Mode Values */
+    --bg: #f5f2ed;
+    --text: #1a1a1a;
+    --border: #d1cdc7;
+    --accent: #6200ff;
+}
+
+.darkmode {
+    /* Dark Mode Values */
+    --bg: #121212;
+    --text: #e0ddd5;
+    --border: #2a2a2a;
+    --accent: #bb86fc;
+}
+
+
+#theme-switch {
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background-color: var(--bg);
+    cursor: pointer;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    position: fixed;
+    top: 20px; 
+    right: 20px;
+    transition: all 0.3s ease;
+}
+
+#theme-switch svg {
+    fill: var(--text);
+}
+
+/* Icon Toggling Logic */
+/* By default (Light Mode), hide the sun (first child) */
+#theme-switch svg:first-child {
+    display: none;
+}
+
+/* If body is darkmode, show the sun and hide the moon */
+.darkmode #theme-switch svg:first-child {
+    display: block;
+}
+.darkmode #theme-switch svg:last-child {
+    display: none;
+}
+
+
+
+
+
+
+
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'JetBrains Mono', monospace;
+            margin: 0;
+            padding: 0;
+            text-transform: lowercase;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .contact-container {
+            max-width: 600px;
+            width: 90%;
+            padding: 40px;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.2); /* Subtle glass effect */
+        }
+
+        .back-link {
+            display: block;
+            margin-bottom: 40px;
+            text-decoration: none;
+            color: #888;
+            font-size: 0.8rem;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover { color: var(--text); }
+
+        h1 {
+            font-weight: 400;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            letter-spacing: 0.1rem;
+        }
+
+        p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+
+        .input-group {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            font-size: 0.7rem;
+            color: #888;
+            margin-bottom: 8px;
+        }
+
+        input, textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--border);
+            padding: 10px 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            color: var(--text);
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            border-bottom: 1px solid var(--text);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--text);
+            color: var(--bg);
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-family: 'JetBrains Mono', monospace;
+            margin-top: 20px;
+            transition: opacity 0.3s;
+        }
+
+        .submit-btn:hover { opacity: 0.8; }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.7rem;
+            color: #888;
+            text-align: center;
+        }
