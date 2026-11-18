@@ -213,6 +213,17 @@
         line-height: 1.85;
         max-width: 680px;
     }
+    .entry-body a {
+    color: inherit;
+    text-decoration: underline;
+    overflow-wrap: anywhere;
+    word-break: break-all;
+}
+
+    .entry-body a:hover {
+        opacity: 0.7;
+  }
+
 
     .entry-item.open .entry-body { display: block; }
     .entry-item.open .entry-toggle::after { content: ' [−]'; }
@@ -310,9 +321,10 @@
 </body>
 
 <script>
-    function toggleEntry(el) {
-        el.classList.toggle('open');
-    }
+    function toggleEntry(el, event) {
+    if (event && event.target.closest('a')) return;
+    el.classList.toggle('open');
+}
 
     function filterEntries(cat, btn) {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -357,7 +369,7 @@ const cat = categoryProp?.select?.name || categoryProp?.multi_select?.[0]?.name 
                 const num = String(results.length - i).padStart(2, "0");
 
                 container.innerHTML += `
-                    <div class="entry-item" data-cat="${cat}" onclick="toggleEntry(this)">
+                    <div class="entry-item" data-cat="${cat}" onclick="toggleEntry(this, event)">
                         <div class="entry-meta-row">
                             <span class="entry-id">entry_${num}</span>
                             <div class="entry-title">
